@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="Jack">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>告诉我你是什么</title>
+
+  <script src="js/jquery-1.8.3.js"> </script>
+
+  <style>
+     body {
+        text-align: center;
+    }
+    div {
+        width: 200px;
+        height: 50px;
+        line-height: 50px;
+        cursor: pointer;
+        background: #eeeeee;
+        color: white;
+	    font-weight: 900;
+	    font-size: 18px;
+
+        position: absolute;
+    }
+
+    .person {
+        color: #333333;
+    }
+
+    .pig {
+        background: #ff0000;
+    }
+
+  </style>
+
+ </head>
+ <body>
+    
+    <h1>告诉我你爱我吗？</h1>
+
+    <div class="person">不爱</div>
+    <div class="pig">很爱</div>
+
+ </body>
+
+ <script>
+
+var w = $(".person").width();
+var h = $(".person").height();
+
+var pageWidth = window.innerWidth;
+var pageHeight = window.innerHeight;
+
+var centerX = parseInt(pageWidth / 2);
+var centerY = parseInt(pageHeight / 2);
+
+$(".person").css({
+    left: (centerX - w - 50)+ "px"
+});
+$(".pig").css({
+    left: (centerX + 50) + "px"
+});
+
+$(".person").mouseover(function() {
+    // console.log("mouse over");
+    
+    var x = parseInt(Math.random() * (pageWidth - w));
+    var y = parseInt(Math.random() * (pageHeight - h));
+
+    $(".person").css({
+        left: x + "px",
+        top: y + "px"
+    });
+ });
+
+ $(".pig").click(function() {
+    for (var i = 0; i < 3; i++) {
+        alert("终于承认你爱我了吧!");
+    }
+
+     alert("重要的事情说三遍");
+ });
+ </script>
+
+</html>
